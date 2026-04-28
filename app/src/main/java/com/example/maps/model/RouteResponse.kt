@@ -1,17 +1,18 @@
 package com.example.maps.model
 
-import com.google.gson.annotations.SerializedName
 
-// Esta es la estructura que devuelve OpenRouteService
+
 data class RouteResponse(
-    @SerializedName("features") val features: List<Feature>
+    // La API nos manda los datos dentro de un arreglo llamado "features"
+    val features: List<Feature>
 )
 
 data class Feature(
-    @SerializedName("geometry") val geometry: Geometry
+    //cordenadas de las calles trazadas
+    val geometry: Geometry
 )
 
+// líneas geográficas de la ruta
 data class Geometry(
-    @SerializedName("coordinates") val coordinates: List<List<Double>>
-    // ORS devuelve una lista de puntos [Longitud, Latitud]
+    val coordinates: List<List<Double>>
 )
